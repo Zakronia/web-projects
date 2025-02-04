@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Hangman </title>
+    <meta charset="UTF-8" />
+    <script src="hangman/hangman.js"></script>
+    <link rel="stylesheet" href="hangman/hangman.css" />
+</head>
+
+<body onload="initialise(); endGame()">
+    <h1> Welcome to Hangman!</h1>
+    <div id="display">
+    <svg id="hangman-lines" height="400" width="400">
+        <polyline class="line" id="hangyThing" points="10,210 10,10 110,10 110,50"/>
+        <circle id="head" class="line" r="25" cx="110" cy="75" style="stroke:black" order="1"/>
+        <line id="body" class="line" x1="110" x2="110" y1="100" y2="150" style="stroke:black" order="2"/>
+        <line id="rArm" class="line" x1="110" x2="80" y1="110" y2="130" style="stroke:black" order="3"/>
+        <line id="lArm" class="line" x1="110" x2="140" y1="110" y2="130" style="stroke:black" order="4"/>
+        <line id="rLeg" class="line" x1="110" x2="80" y1="150" y2="200" style="stroke:black" order="5"/>
+        <line id="lLeg" class="line" x1="110" x2="140" y1="150" y2="200" style="stroke:black" order="6"/>
+    </svg>
+    </div>
+    <div id="game-input">
+        <button onclick="startGame()" class="startendbuttons" id="startgame">Start New Game</button>
+        <button onclick="endGame()" class="startendbuttons" id="endgame">End Game</button> <br>
+        <table id="letterchoice">
+            <tbody id="table" class="gameInactive">
+                <tr>
+                    <a><button onclick="guessLetter(value,id)" id="letterA" class="guessButton" value="A">A</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterB" class="guessButton" value="B">B</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterC" class="guessButton" value="C">C</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterD" class="guessButton" value="D">D</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterE" class="guessButton" value="E">E</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterF" class="guessButton" value="F">F</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterG" class="guessButton" value="G">G</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterH" class="guessButton" value="H">H</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterI" class="guessButton" value="I">I</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterJ" class="guessButton" value="J">J</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterK" class="guessButton" value="K">K</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterL" class="guessButton" value="L">L</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterM" class="guessButton" value="M">M</button></a>
+                </tr><br>
+                <tr>
+                    <a><button onclick="guessLetter(value,id)" id="letterN" class="guessButton" value="N">N</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterO" class="guessButton" value="O">O</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterP" class="guessButton" value="P">P</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterQ" class="guessButton" value="Q">Q</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterR" class="guessButton" value="R">R</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterS" class="guessButton" value="S">S</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterT" class="guessButton" value="T">T</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterU" class="guessButton" value="U">U</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterV" class="guessButton" value="V">V</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterW" class="guessButton" value="W">W</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterX" class="guessButton" value="X">X</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterY" class="guessButton" value="Y">Y</button></a>
+                    <a><button onclick="guessLetter(value,id)" id="letterZ" class="guessButton" value="Z">Z</button></a>
+                </tr>
+            </tbody>
+        </table>
+        <table id="wordtable">
+            <tr id="wordrow"></tr>
+        </table>
+    </div>
+    <div id="gameStatus" class=>
+        <p id="printGameStatus" class="hidden">
+            {The game status will be printed here once a game ends}
+        </p>
+    </div>
+    <div id="options" onload="eventListeners()">
+        <button type="button" class="collapsible"> View Settings </button>
+
+        <div class="content" class="settings">
+            This will be the options menu, where you will be able to customise the game as much as you want.
+            Right now, however, there are no options, so check again later<br><br>
+
+            <div id="setCategories">
+                <h4>Select the categories you'd like the play with: </h4>
+
+                <input type="checkbox" id="all" checked/><label for="all" >Toggle All Categories</label>
+                <input type="checkbox" id="local_places" class="category" disabled/><label for="local_places">Toggle Local Places</label>
+                <input type="checkbox" id="languages" class="category" disabled/><label for="languages">Toggle Languages</label>
+                <input type="checkbox" id="languages" class="category" disabled/><label for="languages">Toggle Languages</label>
+
+                <p class="error" id="caterror"></p>
+                <script type="text/javascript">
+                    var all = document.getElementById('all');
+                    let allUnchecked = true;
+                    all.addEventListener('change', function () {
+                        var other = document.getElementsByClassName('category');
+                        if (all.checked)
+                            for (const input of other)
+                                input.disabled = true;
+                        else for (const input of other) {
+                                input.disabled = false;
+                                if (input.checked) allUnchecked = false;
+                    }});
+
+                    var cat = document.getElementsByClassName('category');
+                    for (i = 0; i < cat.length; i++) {
+                        cat[i].addEventListener('change', function () {
+                            for (const input of cat) {
+                                if (input.checked) allUnchecked = false;
+                            }
+                            if (allUnchecked) {
+                                document.getElementById('startgame').disabled = true;
+                                document.getElementById('caterror').innerHTML = 'Please check at least one category.';
+                            } else {
+                                document.getElementById('startgame').disabled = false;
+                                document.getElementById('caterror').innerHTML = '';
+                        }})};
+                </script>
+            </div><br>
+
+            <div id="setOther">
+                <h4>Select other settings: </h4>
+
+                <input type="checkbox" id="setExample" /><label for="setExample">Test Label</label><br>
+            </div>
+        </div>
+
+        <script>
+            var menu = document.getElementsByClassName('collapsible');
+            for (i = 0; i < menu.length; i++) {
+                menu[i].addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    var content = this.nextElementSibling;
+                    if (content.style.display === 'block')
+                        content.style.display = 'none';
+                    else content.style.display = 'block'
+                })
+            }
+        </script>
+    </div>
+</body>
+
+</html>

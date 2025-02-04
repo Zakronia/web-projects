@@ -1,0 +1,31 @@
+puyallup,local_places
+sumner,local_places
+washington,local_places
+tacoma,local_places
+seattle,local_places
+south hill,local_places
+oregon,local_places
+olympia,local_places
+vancouver,local_places
+portland,local_places
+seatac,local_places
+pierce county,local_places
+mount rainier,local_places
+tacoma narrows,local_places
+gig harbor,local_places
+puget sound,local_places
+mount saint helens,local_places
+bellevue,local_places
+english,languages
+german,languages
+spanish,languages
+italian,languages
+japanese,languages
+french,languages
+dutch,languages
+afrikaans,languages
+latvian,languages
+hatsune miku,people
+kasane teto,people
+the yellow one that wasn't in mesmerizer,people
+set it off,bands

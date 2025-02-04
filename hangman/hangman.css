@@ -1,0 +1,65 @@
+:root { 
+    --bg: white
+}
+
+/* Styles the buttons as they appear on the screen */
+button {
+    text-align: center;
+    font-size: 1.0em;
+    line-height: 200%;
+    width: 50px;
+    height: 50px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: var(--bg);
+}
+
+/* Colors the letters green or red for correct and incorrect guesses */
+.guessedYuhHuh {
+    color: green;
+}
+.guessedNuhUh {
+    color: red;
+}
+
+/* sets width for the Start New Game and End Game buttons */
+.startendbuttons {
+    width: 200px;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+    background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+
+.line {
+    stroke: red;
+    stroke-width: 3px;
+    fill: none;
+}
+
+/* for hiding stuff */
+.hidden {
+    opacity: 0;
+}
