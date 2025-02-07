@@ -105,10 +105,17 @@ function guessLetter(letter, button) {
 
 function endGame() {
     const buttons = document.getElementsByClassName('guessButton');
+    var wordrow = document.getElementById('wordrow');
     for (const button of buttons) {
         button.disabled = true;
         button.classList.add('hidden');
         button.classList.remove('guessedYuhHuh','guessedNuhUh');
+    }
+
+    for (let i = 0; i < word.length; i++) {
+        var cell = document.getElementById('cell' + i);
+        if (cell.innerHTML = '__')
+            cell.innerHTML = word.charAt(i);
     }
 
     document.getElementById('gameStatus').classList.remove('hidden');
