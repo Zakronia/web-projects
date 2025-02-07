@@ -64,6 +64,8 @@ function startGame() {
         const cell = table.insertCell();
         if (word.charAt(i) === ' ')
             cell.innerHTML = '<pre>   </pre>';
+        else if (word.charAt(i) === '\'')
+            cell.innerHTML = ' \' ';
         else {
             cell.innerHTML = '__';
             countLetters++;
