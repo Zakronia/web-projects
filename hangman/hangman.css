@@ -14,6 +14,10 @@ button {
     border-color: var(--bg);
 }
 
+body {
+    justify-items: center;
+}
+
 /* Colors the letters green or red for correct and incorrect guesses */
 .guessedYuhHuh {
     color: green;
@@ -33,7 +37,7 @@ button {
     color: #444;
     cursor: pointer;
     padding: 18px;
-    width: 100%;
+    width: 650px;
     border: none;
     text-align: left;
     outline: none;
@@ -47,10 +51,11 @@ button {
 
 /* Style the collapsible content. Note: hidden by default */
 .content {
-    padding: 0 18px;
+    padding: 1 15px;
     display: none;
     overflow: hidden;
     background-color: #f1f1f1;
+    width: 650px
 }
 
 .line {

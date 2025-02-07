@@ -13,12 +13,12 @@
     <div id="display">
     <svg id="hangman-lines" height="400" width="400">
         <polyline class="line" id="hangyThing" points="10,210 10,10 110,10 110,50"/>
-        <circle id="head" class="line" r="25" cx="110" cy="75" style="stroke:black" order="1"/>
-        <line id="body" class="line" x1="110" x2="110" y1="100" y2="150" style="stroke:black" order="2"/>
-        <line id="rArm" class="line" x1="110" x2="80" y1="110" y2="130" style="stroke:black" order="3"/>
-        <line id="lArm" class="line" x1="110" x2="140" y1="110" y2="130" style="stroke:black" order="4"/>
-        <line id="rLeg" class="line" x1="110" x2="80" y1="150" y2="200" style="stroke:black" order="5"/>
-        <line id="lLeg" class="line" x1="110" x2="140" y1="150" y2="200" style="stroke:black" order="6"/>
+        <circle id="head" class="line body_part" r="25" cx="110" cy="75" style="stroke:black" order="1"/>
+        <line id="body" class="line body_part" x1="110" x2="110" y1="100" y2="150" style="stroke:black" order="2"/>
+        <line id="rArm" class="line body_part" x1="110" x2="80" y1="110" y2="130" style="stroke:black" order="3"/>
+        <line id="lArm" class="line body_part" x1="110" x2="140" y1="110" y2="130" style="stroke:black" order="4"/>
+        <line id="rLeg" class="line body_part" x1="110" x2="80" y1="150" y2="200" style="stroke:black" order="5"/>
+        <line id="lLeg" class="line body_part" x1="110" x2="140" y1="150" y2="200" style="stroke:black" order="6"/>
     </svg>
     </div>
     <div id="game-input">
@@ -58,6 +58,11 @@
                 </tr>
             </tbody>
         </table>
+        <br><br>
+        <div id="category">
+            The category of your word is 
+            <a id="catName"></a>.
+        </div>
         <table id="wordtable">
             <tr id="wordrow"></tr>
         </table>
@@ -80,7 +85,7 @@
                 <input type="checkbox" id="all" checked/><label for="all" >Toggle All Categories</label>
                 <input type="checkbox" id="local_places" class="category" disabled/><label for="local_places">Toggle Local Places</label>
                 <input type="checkbox" id="languages" class="category" disabled/><label for="languages">Toggle Languages</label>
-                <input type="checkbox" id="languages" class="category" disabled/><label for="languages">Toggle Languages</label>
+                <input type="checkbox" id="people" class="category" disabled/><label for="people">Toggle People</label>
 
                 <p class="error" id="caterror"></p>
                 <script type="text/javascript">
