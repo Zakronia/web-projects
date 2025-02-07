@@ -1,31 +1,31 @@
-puyallup,local_places
-sumner,local_places
-washington,local_places
-tacoma,local_places
-seattle,local_places
-south hill,local_places
-oregon,local_places
-olympia,local_places
-vancouver,local_places
-portland,local_places
-seatac,local_places
-pierce county,local_places
-mount rainier,local_places
-tacoma narrows,local_places
-gig harbor,local_places
-puget sound,local_places
-mount saint helens,local_places
+afrikaans,languages
 bellevue,local_places
+dutch,languages
 english,languages
+french,languages
 german,languages
-spanish,languages
+gig harbor,local_places
+hatsune miku,people
 italian,languages
 japanese,languages
-french,languages
-dutch,languages
-afrikaans,languages
-latvian,languages
-hatsune miku,people
 kasane teto,people
-the yellow one that wasn't in mesmerizer,people
+latvian,languages
+mount rainier,local_places
+mount saint helens,local_places
+olympia,local_places
+oregon,local_places
+pierce county,local_places
+portland,local_places
+puget sound,local_places
+puyallup,local_places
+seatac,local_places
+seattle,local_places
 set it off,bands
+south hill,local_places
+spanish,languages
+sumner,local_places
+tacoma narrows,local_places
+tacoma,local_places
+the yellow one that wasn't in mesmerizer,people
+vancouver,local_places
+washington,local_places
