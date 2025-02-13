@@ -4,6 +4,10 @@ var word = '', category = '';
 var nuhUh = 0, countLetters = 0;
 var wordArray = [['','']];
 
+// these variables are for the tracking of stats during a session
+var wins = 0;
+var losses = 0;
+
 async function initialise() {
     // stuff that should be run on page load that aren't in the endGame() function
     let body = document.getElementsByClassName('body_part');
@@ -58,6 +62,7 @@ function startGame() {
     let body = document.getElementsByClassName('body_part');
     for (var part of body)
         part.classList.add('hidden');
+    countLetters = 0;
 
     // create the blank spaces for the letters
     for (i = 0; i < word.length; i++) {
@@ -94,20 +99,27 @@ function guessLetter(letter, button) {
             countLetters--;
         }
     }
+
     if (!perchance) {
         nuhUh++;
         document.getElementById(button).classList.add('guessedNuhUh');
         document.getElementsByClassName('line')[nuhUh].classList.remove('hidden');
     }
 
-    if (nuhUh >= 6 || countLetters == 0) {
-        endGame();
+    console.log(countLetters + ' ' + nuhUh);
+    if (nuhUh >= 6) {
+        endGame(0);
+    }
+
+    if (countLetters == 0) {
+        endGame(1);
     }
 }
 
-function endGame() {
+function endGame(gameStatus) {
     const buttons = document.getElementsByClassName('guessButton');
     var wordrow = document.getElementById('wordrow');
+
     for (const button of buttons) {
         button.disabled = true;
         button.classList.add('hidden');
@@ -120,6 +132,23 @@ function endGame() {
             cell.innerHTML = word.charAt(i);
     }
 
+    if (gameStatus == 0) {
+        losses++;
+        document.getElementById('printGameStatus').innerHTML = 'You didn\'t get the word in time, better luck next time\!';
+    }
+
+    if (gameStatus == 1) {
+        wins++;
+        document.getElementById('printGameStatus').innerHTML = 'Congratulations, you got the word\!';
+    }
+
+    updateStats();
+
     document.getElementById('gameStatus').classList.remove('hidden');
     nuhUh = 0;
+}
+
+function updateStats() {
+    document.getElementById('wins').innerHTML = wins;
+    document.getElementById('losses').innerHTML = losses;
 }

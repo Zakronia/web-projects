@@ -21,6 +21,11 @@
         <line id="lLeg" class="line body_part" x1="110" x2="140" y1="150" y2="200" style="stroke:black" order="6"/>
     </svg>
     </div>
+
+    <div id="gameStatus">
+        <p id="printGameStatus"></p>
+    </div>
+
     <div id="game-input">
         <button onclick="startGame()" class="startendbuttons" id="startgame">Start New Game</button>
         <button onclick="endGame()" class="startendbuttons" id="endgame">End Game</button> <br>
@@ -67,12 +72,21 @@
             <tr id="wordrow"></tr>
         </table>
     </div>
-    <div id="gameStatus" class=>
-        <p id="printGameStatus" class="hidden">
-            {The game status will be printed here once a game ends}
-        </p>
+
+    <div id="statistics">
+        <button type="button" class="collapsible"> View Statistics </button>
+
+        <div class="content" class="statistics">
+            <br>
+            <div id="statistics2">
+                <h4>Here are your current game statistics: </h4>
+                Total Wins: <a id="wins"></a><br>
+                Total Losses: <a id="losses"></a><br>
+            </div>
+        </div>
     </div>
-    <div id="options" onload="eventListeners()">
+    <br>
+    <div id="options">
         <button type="button" class="collapsible"> View Settings </button>
 
         <div class="content" class="settings">
